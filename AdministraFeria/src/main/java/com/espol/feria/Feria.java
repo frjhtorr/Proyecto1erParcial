@@ -28,6 +28,10 @@ public class Feria {
     private ArrayList<AuspicianteEnFeria> lstAuspiciantes;
     private Seccion[] secciones = new Seccion[4];
 
+    public Feria() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public Object getCodFeria() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

@@ -37,13 +37,12 @@ public class AdministraFeria {
   
     //BUSCAR FERIA POR COD
     public static Feria buscarFeria(String codFeria){
-    Feria feriaBuscada = new Feria(cod, nombre, descripcion, lugar, fechaIni, fechaFin, horario);
       for(Feria f: ferias){
        if(f.getCodFeria().equals(codFeria)){
-        feriaBuscada=f;
+        return f;
         } 
     }
-    return feriaBuscada;
+    return null;
   }
     
     //MOSTRAR FERIA - ITEM 0 EN EL SUB MENU AdminFerias

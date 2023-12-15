@@ -11,16 +11,41 @@ import com.espol.personas.*;
  * @author joshf
  */
 public class Stand {
-    private int num;
+    private String cod;
     private boolean reservado; 
     private Persona owner;
     private String fechaAsigna;
 
-    void setNum(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getCod() {
+        return cod;
     }
 
-    void setReservado(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setCod(String cod) {
+        this.cod = cod;
     }
+
+    public boolean isReservado() {
+        return reservado;
+    }
+
+    public void setReservado(boolean reservado) {
+        this.reservado = reservado;
+    }
+
+    public Persona getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Persona owner) {
+        this.owner = owner;
+    }
+
+    public String getFechaAsigna() {
+        return fechaAsigna;
+    }
+
+    public void setFechaAsigna(String fechaAsigna) {
+        this.fechaAsigna = fechaAsigna;
+    }
+    
 }
