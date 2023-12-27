@@ -26,35 +26,34 @@ public class Feria {
     private String codFeria;
     private ArrayList<Emprendedor> lstEmprendedores;
     private ArrayList<AuspicianteEnFeria> lstAuspiciantes;
-    private Seccion[] secciones = new Seccion[4];
+    private Seccion[] secciones;
 
     public Feria() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Object getCodFeria() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getCodFeria() {
+        return codFeria;  
     }
 
     public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return nombre;
     }
 
     public String getFechaIni() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return fechaIni;
     }
 
     public String getLugar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return lugar;
     }
 
-    public String cantidadAus() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int cantidadAus() {
+        return secciones.length;
     }
     
     public void setSecciones(Seccion[] seccionesFeria) {
         this.secciones = seccionesFeria;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     private Seccion[] getSecciones() {

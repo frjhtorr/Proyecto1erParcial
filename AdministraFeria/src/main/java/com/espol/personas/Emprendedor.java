@@ -11,4 +11,13 @@ package com.espol.personas;
 public class Emprendedor extends Persona {
     //VARIABLES DE INSTANCIA
     private String servicios;
+    
+
+    public String getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(String servicios) {
+        this.servicios = servicios;
+    }
 }
