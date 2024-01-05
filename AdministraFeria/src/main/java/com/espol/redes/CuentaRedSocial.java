@@ -11,4 +11,23 @@ package com.espol.redes;
 public class CuentaRedSocial {
     private String cuenta;
     private RedSocial red;
+    
+    public CuentaRedSocial(RedSocial red, String cuenta){
+        this.cuenta = cuenta;
+        this.red = red;
+    }
+    
+    public String getCuenta(){
+        return cuenta;
+    }
+    public void setCuenta(String cuenta){
+        this.cuenta=cuenta;
+    }
+    
+    public RedSocial getRed(){
+        return red;
+    }
+    public void setRedSocial(String red){
+        this.red=RedSocial.valueOf(red);
+    }
 }

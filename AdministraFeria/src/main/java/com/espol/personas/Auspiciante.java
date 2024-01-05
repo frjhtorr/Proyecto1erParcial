@@ -11,4 +11,12 @@ package com.espol.personas;
 public class Auspiciante extends Persona{
     //VARIABLES DE INSTANCIA
     private SectorCubierto sector;
+    
+    public SectorCubierto getSectorCubierto(){
+        return sector;
+    }
+    public void setSectorCubierto(String sector){
+        this.sector = SectorCubierto.valueOf(sector);
+    }
+    
 }

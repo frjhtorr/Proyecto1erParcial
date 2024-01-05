@@ -29,41 +29,182 @@ public class Feria {
     private Seccion[] secciones;
 
     public Feria() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    public Feria(String codFeria){
+        this.codFeria=codFeria;
+    }
+    
+    public Feria(String nombre, String descripcion, String fechaIni, String fechaFin, String lugar, String horario){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaIni = fechaIni;
+        this.fechaFin = fechaFin;
+        this.lugar = lugar;
+        this.horario = horario;
+    }
+    
     public String getCodFeria() {
         return codFeria;  
+    }
+    public void setCodFeria(String cod){
+        this.codFeria = cod;
     }
 
     public String getNombre() {
         return nombre;
     }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public String getDescripcion(){
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion){
+        this.descripcion = descripcion;
+    }
 
     public String getFechaIni() {
         return fechaIni;
+    }
+    public void setFechaIni(String fechaIni){
+        this.fechaIni=fechaIni;
+    }
+    
+    public String getFechaFin(){
+        return fechaFin;
+    }
+    public void setFechaFin(String fechaFin){
+        this.fechaFin = fechaFin;
     }
 
     public String getLugar() {
         return lugar;
     }
-
-    public int cantidadAus() {
-        return secciones.length;
+    public void setLugar(String lugar){
+        this.lugar=lugar;
     }
     
+    public String getHorario(){
+        return horario;
+    }
+    public void setHorario(String horario){
+        this.horario = horario;
+    }
+    
+    public ArrayList<Emprendedor> getLstEmprendedores(){
+        return lstEmprendedores;
+    }
+    public void setLstEmprendedores(ArrayList<Emprendedor> lstEmprendedores){
+        this.lstEmprendedores = lstEmprendedores;
+    }
+    
+    public ArrayList<AuspicianteEnFeria> getLstAuspiciantes(){
+        return lstAuspiciantes;
+    }
+    public void setLstAuspiciantes(ArrayList<AuspicianteEnFeria> lstAuspiciantes){
+        this.lstAuspiciantes = lstAuspiciantes;
+    }
+    
+    public Seccion[] getSecciones() {
+        return secciones;
+    }
     public void setSecciones(Seccion[] seccionesFeria) {
         this.secciones = seccionesFeria;
     }
     
-    private Seccion[] getSecciones() {
-        return secciones;
+    public String toString(){
+        return "Feria{" +
+                "nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaIni='" + fechaIni + '\'' +
+                ", fechaFin='" + fechaFin + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", horario='" + horario + '\'' +
+                '}';
     }
     
+    public void editarFeria(Scanner sc){
+        String fechaIni = this.getFechaIni();
+        String[] fecha = fechaIni.split("-");
+        int a = Integer.parseInt(fecha[0]);
+        int m = Integer.parseInt(fecha[1]);
+        int d = Integer.parseInt(fecha[2]);
+        System.out.println("Datos actuales de la feria");
+        System.out.println(this.toString());
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaInicio = LocalDate.of(a,m,d);
+        if(!fechaInicio.isBefore(fechaActual)){
+            System.out.println("-------------------------");
+            System.out.println("¿Qué campo desea editar?");
+            System.out.println("1. Nombre");
+            System.out.println("2. Descripción");
+            System.out.println("3. Lugar");
+            System.out.println("4. Fecha de Inicio");
+            System.out.println("5. Fecha de Fin");
+            System.out.println("6. Horario");
+            int opcion = sc.nextInt();
+            switch(opcion){
+                case 1 ->{
+                    System.out.println("Ingrese el nuevo nombre: ");
+                    String nom= sc.nextLine();
+                    this.setNombre(nom);
+                    break;
+                }
+                case 2 ->{
+                    System.out.println("Ingrese la nueva descripción: ");
+                    String des= sc.nextLine();
+                    this.setDescripcion(des);
+                    break;
+                }
+                case 3 ->{
+                    System.out.println("Ingrese la nueva fecha de Inicio YYYY-MM-DD: ");
+                    String fi= sc.nextLine();
+                    this.setFechaIni(fi);
+                    break;
+                }
+                case 4 ->{
+                    System.out.println("Ingrese la nueva fecha de Fin YYYY-MM-DD: ");
+                    String ff= sc.nextLine();
+                    this.setFechaFin(ff);
+                    break;
+                }
+                case 5 ->{
+                    System.out.println("Ingrese el nuevo lugar: ");
+                    String lugar = sc.nextLine();
+                    this.setLugar(lugar);
+                    break;
+                }
+                case 6 ->{
+                    System.out.println("Ingrese el nuevo horario: ");
+                    String horario = sc.nextLine();
+                    this.setHorario(horario);
+                    break;
+                }
+        }
+        }else{
+            System.out.println("Lo sentimos, la feria ya está en curso. No se puede editar");
+        }
+    }
     
+    public void consultarEmprendedores(){
+        for (Emprendedor e : this.lstEmprendedores){
+            System.out.println(e.toString());
+        }
+    }
     
-    public void fijarStandsFeria(){
-        Scanner sc = new Scanner(System.in);
+    public void editarEmprendedor(Scanner sc,String cedula, ArrayList<Emprendedor> lstEmprendedores){
+        Emprendedor emp = new Emprendedor();
+        for(Emprendedor e: lstEmprendedores){
+           if(e.getCedula().equals(cedula)){
+               emp = e;
+           }
+       }
+        emp.editarEmprendedor(sc);
+        
+    }
+    
+    public void fijarStandsFeria(Scanner sc){
         // Asigna valores a las secciones
         String[] letras = {"A","B","C","D"};
         Seccion[] seccionesFeria = new Seccion[4];
@@ -73,11 +214,11 @@ public class Feria {
           int cant = sc.nextInt();
           seccionesFeria[i].setCantStands(cant);
         }
-          // Asigna el arreglo de secciones a la feria
-          this.setSecciones(seccionesFeria);
+        // Asigna el arreglo de secciones a la feria
+        this.setSecciones(seccionesFeria);
 
-          // Crea los stands
-          for(int j=0;j<seccionesFeria.length;j++){
+        // Crea los stands
+        for(int j=0;j<seccionesFeria.length;j++){
             int cantidad = seccionesFeria[j].getCantStands();
             //lista de stands
             ArrayList<Stand> stands = new ArrayList<>();
@@ -90,7 +231,6 @@ public class Feria {
               }
             
           }
-          sc.close();
         }
 
 

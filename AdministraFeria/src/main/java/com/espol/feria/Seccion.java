@@ -14,24 +14,27 @@ public class Seccion {
     //ATRIBUTOS -----------------------------------------------
     private int cantStands;
     private String id;
-    private ArrayList<Stand> ArrayStands;
+    private ArrayList<Stand> lstArrayStands;
 
+    public String getId(){
+        return id;
+    }
     public void setId(String letra) {
         this.id= letra;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setCantStands(int cant) {
-        this.cantStands = cant;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int getCantStands() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public int getCantStands(){
+        return cantStands;
+    }
+    public void setCantStands(ArrayList<Stand> lstArrayStands){
+        this.lstArrayStands = lstArrayStands;
+    }
+    
+    public ArrayList<Stand> getArrayStands(){
+        return lstArrayStands;
+    }
     public void setArrayStands(ArrayList<Stand> ArrayStands){
-        this.ArrayStands = ArrayStands;
+        this.lstArrayStands = ArrayStands;
     }
     
 }

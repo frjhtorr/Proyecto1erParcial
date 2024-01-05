@@ -19,7 +19,6 @@ public class Stand {
     public String getCod() {
         return cod;
     }
-
     public void setCod(String cod) {
         this.cod = cod;
     }

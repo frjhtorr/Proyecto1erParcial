@@ -15,18 +15,15 @@ public class AuspicianteEnFeria extends Auspiciante{
     public String getAuspicio() {
         return auspicio;
     }
-
     public void setAuspicio(String auspicio) {
         this.auspicio = auspicio;
     }
-
+    
     public boolean isTieneStand() {
         return tieneStand;
     }
-
     public void setTieneStand(boolean tieneStand) {
         this.tieneStand = tieneStand;
     }
-    
     
 }
