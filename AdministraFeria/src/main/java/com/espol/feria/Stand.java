@@ -12,6 +12,7 @@ import com.espol.personas.*;
  */
 public class Stand {
     private String cod;
+    private int numAsig;
     private boolean reservado; 
     private Persona owner;
     private String fechaAsigna;
@@ -47,4 +48,19 @@ public class Stand {
         this.fechaAsigna = fechaAsigna;
     }
     
+    public int getNumAsig(){
+        return numAsig;
+    }
+    public void setNumAsig(int numAsig){
+        this.numAsig = numAsig;
+    }
+    
+    @Override
+    public String toString() {
+    return """
+           Stand:
+           Codigo: """ + this.cod + "\nFecha Asignada: " + this.fechaAsigna
+        + "\nPersona Asignada: " + ((this.owner == null) ? "Ninguna" : owner.toString());
+
+  }
 }

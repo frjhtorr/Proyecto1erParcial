@@ -171,14 +171,14 @@ public class Feria {
                 }
                 case 5 ->{
                     System.out.println("Ingrese el nuevo lugar: ");
-                    String lugar = sc.nextLine();
-                    this.setLugar(lugar);
+                    String lugarNuevo = sc.nextLine();
+                    this.setLugar(lugarNuevo);
                     break;
                 }
                 case 6 ->{
                     System.out.println("Ingrese el nuevo horario: ");
-                    String horario = sc.nextLine();
-                    this.setHorario(horario);
+                    String horarioNuevo = sc.nextLine();
+                    this.setHorario(horarioNuevo);
                     break;
                 }
         }
@@ -224,7 +224,7 @@ public class Feria {
             ArrayList<Stand> stands = new ArrayList<>();
               for(int k = 0; k<cantidad; k++){
             Stand stand1 = new Stand();
-            stand1.setNum(k+1);
+            stand1.setNumAsig(k+1);
             stand1.setReservado(false);
             stands.add(stand1);
             this.getSecciones()[j].setArrayStands(stands);

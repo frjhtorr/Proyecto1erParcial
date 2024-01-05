@@ -26,8 +26,8 @@ public class Seccion {
     public int getCantStands(){
         return cantStands;
     }
-    public void setCantStands(ArrayList<Stand> lstArrayStands){
-        this.lstArrayStands = lstArrayStands;
+    public void setCantStands(int cant){
+        this.cantStands = cant;
     }
     
     public ArrayList<Stand> getArrayStands(){
