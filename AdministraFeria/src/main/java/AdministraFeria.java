@@ -89,38 +89,35 @@ public class AdministraFeria {
               } }
           case 3 -> {
               //Administración de auspiciantes
-              adminAuspiciantes();
+              AdminAuspiciantes.menuAuspiciantes();
               int opcionA = sc.nextInt();
               while(opcionA!=4){
                   sc.nextLine();
                   switch(opcionA){
-                      case 1://registrar aupsiciante
-                          System.out.println("-> Registrar auspiciante");
-                          registrarAuspiciante();
-                          break;
-                      case 2: //editar auspiciante
-                          System.out.println("-> Editar auspiciante");
-                          editarAuspiciante();
-                          break;
-                      case 3: //asignar auspiciante
-                          System.out.println("-> Asignar auspiciante");
-                          System.out.println("Selecciona una Feria: ");
-                          codFeria = sc.nextLine();
-                          System.out.println("Escriba la cédula del auspiciante: ");
-                          String ci = sc.nextLine();
-                          asignarAuspiciante(codFeria, ci);
-                          break;}
+                      case 1 -> {
+                          //registrar aupsiciante
+                          AdminAuspiciantes.opcionRegistrarAuspiciante(sc,auspiciantesGenerales);
+                      }
+                      case 2 -> {
+                          //editar auspiciante
+                          AdminAuspiciantes.opcionEditarAuspiciante(sc,auspiciantesGenerales);
+                      }
+                      case 3 -> {
+                          //asignar auspiciante
+                          AdminAuspiciantes.opcionAsignarAuspiciante(sc, auspiciantesGenerales, ferias);
+                      }
+}
                   opcionA = 4;
               } }
           case 4 -> {
               //Administración de Stands
               System.out.println("Selecciona una Feria: ");
               codFeria = sc.nextLine();
-              f = buscarFeria(codFeria);
+              f = AdminFerias.buscarFeria(codFeria, ferias);
               String nombre = f.getNombre();
               System.out.println("-> " +nombre);
               f.mostrarDistribucion();
-              adminStands();
+              AdminStands.menuStands();
               int opcionS = sc.nextInt();
               while(opcionS!=3){
                   switch(opcionS){

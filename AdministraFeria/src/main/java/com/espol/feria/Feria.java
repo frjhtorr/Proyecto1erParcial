@@ -231,7 +231,11 @@ public class Feria {
               }
             
           }
-        }
+    }
+    
+    public void mostrarDistribucion(){
+        
+    }
 
 
     

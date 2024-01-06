@@ -55,6 +55,15 @@ public class Stand {
         this.numAsig = numAsig;
     }
     
+    public boolean estaReservado(){
+        if(owner==null){
+            this.reservado=false;
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     @Override
     public String toString() {
     return """

@@ -68,6 +68,6 @@ public class AdminEmprendedores {
         Feria f = AdminFerias.buscarFeria(codFeria,ferias);
         System.out.println("Ingrese la cédula de un emprendedor: ");
         String ced = sc.nextLine();
-        f.editarEmprendedor(sc,ced,f.getLstEmprendedores()); 
+        f.editarEmprendedor(sc,ced,AdminFerias.buscarFeria(codFeria,ferias).getLstEmprendedores()); 
     }
 }
