@@ -5,6 +5,7 @@
 package com.espol.menu;
 
 import com.espol.feria.Feria;
+import com.espol.feria.Stand;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,11 +21,18 @@ public class AdminStands {
         System.out.println("3. Regresar");
     }
     
-    public static void opcionReservarStand(Scanner sc,ArrayList<Feria> ferias){
+    
+    public static void opcionReservarStand(Feria f,Scanner sc,ArrayList<Feria> ferias){
         System.out.println("-> Reservar Stand");
-        System.out.println("Ingrese el codigo de una feria");
-        String codFeria = sc.nextLine();
-        AdminFerias.buscarFeria(codFeria, ferias);
-        
+        String codFeria = f.getCodFeria();
+        f.reservarStand(sc, codFeria);
+    }
+    
+    public static void opcionMostrarInfoStand(Feria f,Scanner sc){
+        System.out.println("-> Mostrar info de Stand");
+        System.out.println("Ingrese el código de un Stand:");
+        String codS = sc.nextLine();
+        Stand st = f.buscarStand(codS);
+        System.out.println(st.toString());
     }
 }

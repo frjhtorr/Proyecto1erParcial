@@ -211,6 +211,7 @@ public class Feria {
         for(int i=0;i<seccionesFeria.length;i++){
           seccionesFeria[i] = new Seccion();
           seccionesFeria[i].setId(letras[i]);
+            System.out.println("¿Cuántos stands desea en la Sección "+letras[i]+"?");
           int cant = sc.nextInt();
           seccionesFeria[i].setCantStands(cant);
         }
@@ -234,9 +235,110 @@ public class Feria {
     }
     
     public void mostrarDistribucion(){
-        
+      System.out.println("Feria: " +this.getNombre());
+      System.out.println("Distribucion de Stands: ");
+      for(Seccion s: this.getSecciones()){
+          String letra = s.getId();
+          int num = s.getCantStands();
+          for(Stand st: s.getArrayStands()){
+            //int i=st.getNum();
+            st.setNumAsig(num);
+            if(st.isReservado()){
+            System.out.print("["+letra+num+"*]");
+          }else{
+            System.out.print("["+letra+num+"]");
+            } 
+            num-=1;
+          }
+          System.out.println(" ");
+        }
     }
-
-
+    
+    public void reservarStand(Scanner sc,String ln){ 
+      //El formato del código es LetraNúmero Ej: A6, donde la letra es la sección y el número es del stand
+      //boolean estado;
+      char letra = ln.charAt(0);
+      String letraS = String.valueOf(letra);
+      int numero = Character.getNumericValue(ln.charAt(1));
+      Emprendedor coincidenciaE = new Emprendedor();
+      AuspicianteEnFeria coincidenciaA = new AuspicianteEnFeria();
+      for(Seccion s : this.secciones){
+        if(s.getId().equals(letraS)){
+          for(Stand st: s.getArrayStands()){
+            if(!st.isReservado() && st.getNumAsig()==numero){
+              System.out.println("El stand está disponible");
+              System.out.println("Ingrese su cedula: ");
+              String cedula = sc.nextLine();
+              //Se itera lstEmprendedor para buscar coincidencia, si existe se albergará en una variable el emprendedor  e
+              
+              for(Emprendedor e: lstEmprendedores){
+                 if(e.getCedula().equals(cedula)){
+                   coincidenciaE = e;
+                }
+              }
+              //for para evaluar auspiciantes, si existe coincidencia se albergará en una variable auspiciantes a
+              if(!(this.lstAuspiciantes.isEmpty())){
+              for(AuspicianteEnFeria a: lstAuspiciantes){
+                if(a.getCedula().equals(cedula)){
+                  coincidenciaA =a;
+                }
+                }
+              }
+              // Si e existe, validamos lo de los 2 stands, dependiendo se asigna el stand
+              if(coincidenciaE!=null){
+                ArrayList lstStandsE= coincidenciaE.getLstStand();
+                //lstAuspiciantes = new ArrayList<>();
+                if(!coincidenciaE.getLstStand().isEmpty()){
+                int cantidad = coincidenciaE.getLstStand().size();
+                if(cantidad<2){
+                  lstStandsE.add(st);
+                  st.setOwner(coincidenciaE);
+                }
+                }else{
+                  System.out.println("Lo sentimos, "+coincidenciaE.getNombre()+" ya posee el máximo de stands asignados posibles (2)");
+                  
+                }
+              }
+              if(coincidenciaA!=null){
+                // Si a existe, validamos que no tenga stand
+                int cantidad = coincidenciaA.getLstStand().size();
+                if(cantidad==0){
+                  coincidenciaA.getLstStand().add(st);
+                  st.setOwner(coincidenciaA);
+                }else{
+                  System.out.println("Lo sentimos, "+coincidenciaA.getNombre()+" ya posee un stand asignado");
+                }
+              }
+              // si ni a ni e existen, se pide otro código
+              if(coincidenciaA==null && coincidenciaE==null){
+                System.out.println("Lo sentimos, ha ingresado un código inválido");
+              }
+            }else{
+                System.out.println("Stand reservado");
+            }
+          }
+        }else{
+            System.out.println("Sección no encontrada");
+        }
+      }
+  }
+    
+    public Stand buscarStand(String ln){
+    Stand standBuscado = new Stand();
+    char letra = ln.charAt(0);
+    int numero = Character.getNumericValue(ln.charAt(1));
+    for(Seccion s : secciones){
+      if(s.getId().equals(letra)){
+        ArrayList<Stand> stands = s.getArrayStands();
+        for(Stand st: stands){
+          if(!st.isReservado() && st.getNumAsig()==numero){
+            standBuscado=st;  
+          }
+        }
+      }
+    }
+    return standBuscado;    
+  }
+    
     
 }

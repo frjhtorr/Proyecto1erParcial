@@ -8,6 +8,7 @@ import com.espol.feria.Feria;
 import com.espol.personas.*;
 import com.espol.personas.Persona;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -76,8 +77,11 @@ public class AdminAuspiciantes {
                 if(f.getLstAuspiciantes().contains(a)){
                     System.out.println("El auspiciante esta registrado en la Feria"+f.getNombre());
                 }else{
-                    if(a intanceof AuspicianteEnFeria){
+                    if(a instanceof AuspicianteEnFeria){
                         AuspicianteEnFeria aef = (AuspicianteEnFeria) a;
+                        String auspicio = sc.nextLine();
+                        aef.setAuspicio(auspicio);
+                    
                         f.getLstAuspiciantes().add(aef);
                     }
                 }
