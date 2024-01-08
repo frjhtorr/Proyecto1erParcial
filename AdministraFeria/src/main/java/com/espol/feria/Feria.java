@@ -13,9 +13,6 @@ import java.time.Month;
  * @author joshf
  */
 public class Feria {
-
-    public Feria(String cod, String nombre1, String descripcion1, String lugar1, String fechaIni1, String fechaFin1, String horario1) {
-    }
   //VARIABLES DE INSTANCIA
     private String nombre;
     private String descripcion;
@@ -32,6 +29,16 @@ public class Feria {
     }
     public Feria(String codFeria){
         this.codFeria=codFeria;
+    }
+    public Feria(String cod, String nombre, String descripcion, String fechaIni, String fechaFin, String lugar, String horario){
+        
+        this.codFeria = cod;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaIni = fechaIni;
+        this.fechaFin = fechaFin;
+        this.lugar = lugar;
+        this.horario = horario;
     }
     
     public Feria(String nombre, String descripcion, String fechaIni, String fechaFin, String lugar, String horario){

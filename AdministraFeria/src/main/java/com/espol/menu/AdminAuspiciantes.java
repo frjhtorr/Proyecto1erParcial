@@ -24,7 +24,7 @@ public class AdminAuspiciantes {
         System.out.println("4. Regresar");
     }
     public static void opcionRegistrarAuspiciante(Scanner sc, ArrayList<Auspiciante> auspiciantesGenerales){
-        System.out.println("-> Registrar emprendedor");
+        System.out.println("-> Registrar Auspiciante");
         System.out.println("Ingreso los datos del Auspiciante");
         String c;
         boolean cedulaValida;
@@ -57,10 +57,16 @@ public class AdminAuspiciantes {
         System.out.println("-> Editar auspiciante");
         System.out.println("Ingrese Cedula o RUC del Auspiciante");
         String ced = sc.nextLine();
+        System.out.println("-> "+ ced);
+        
+        sc.nextLine();
         for(Auspiciante a: auspiciantesGenerales){
+            System.out.println("Buscando Auspiciante...");
             if(a.getCedula().equals(ced)){
                 a.editarAuspiciante(sc);
-                System.out.println("Camios ");
+                System.out.println("Cambios guardados con éxito");
+            }else{
+                System.out.println("Este no es, siguiente iteración");
             }
         }
 

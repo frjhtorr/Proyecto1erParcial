@@ -44,6 +44,10 @@ public class AdminFerias {
     
     public static void opcionVerFeria(Scanner sc, ArrayList<Feria> ferias){
         System.out.println("-> Ver información de feria");
+        for(Feria f : ferias){
+            System.out.print(f.getCodFeria()+" | ");
+        }
+        System.out.println("");
         System.out.println("Selecciona el codigo de una feria: ");
         String codFeria = sc.nextLine();
         AdminFerias.verFeria(codFeria,ferias);
@@ -58,26 +62,34 @@ public class AdminFerias {
         System.out.println("-> Registrar nueva feria");
         System.out.print("Ingrese el nombre de la feria: ");
         String nombre = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+nombre);
 
         System.out.print("Ingrese la descripción de la feria: ");
         String descripcion = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+descripcion);
 
-        System.out.print("Ingrese la fecha de inicio de la feria: ");
+        System.out.print("Ingrese la fecha de inicio de la feria (AAAA-MM-DD): ");
         String fechaIni = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+fechaIni);
 
-        System.out.print("Ingrese la fecha de fin de la feria: ");
+        System.out.print("Ingrese la fecha de fin de la feria (AAAA-MM-DD): ");
         String fechaFin = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+fechaFin);
 
         System.out.print("Ingrese el lugar de la feria: ");
         String lugar = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+lugar);
 
         System.out.print("Ingrese el horario de la feria: ");
         String horario = sc.nextLine();
+        System.out.println("Usted ha ingresado -> "+horario);
 
         String cod = generarCod(ferias);
-        Feria feriaNueva = new Feria(cod, nombre, descripcion, lugar, fechaIni, fechaFin, horario);
+        Feria feriaNueva = new Feria(cod, nombre, descripcion, fechaIni, fechaFin, lugar, horario);
         feriaNueva.fijarStandsFeria(sc);
         ferias.add(feriaNueva);
+        System.out.println("La feria "+feriaNueva.getNombre()+" se ha guardado con éxito");
+        System.out.println("Código: "+cod);
     }
     
     public static void opcionEditarFeria(Scanner sc, ArrayList<Feria> ferias){

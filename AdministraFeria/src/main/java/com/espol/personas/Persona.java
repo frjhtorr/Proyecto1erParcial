@@ -149,6 +149,7 @@ public class Persona {
                 i--;
             }
         }
+        this.lstRedes = lstRedes;
     }
     
     public static boolean validarCedula(String cedula, ArrayList<? extends Persona> listaPersonas){
@@ -192,38 +193,38 @@ public class Persona {
         System.out.println("7. Redes sociales");
     }
     
-    public void editarPersona(Scanner sc){
-        opcionesIniciales();
-        int opcion = sc.nextInt();
+    public void editarPersona(Scanner sc,int opcion){
         switch (opcion) {
         case 1 -> {
             System.out.println("Ingrese el nuevo nombre:");
-            setNombre(sc.nextLine());
+            String nombreN = sc.nextLine();
+            nombre = nombreN;
             }
         case 2 -> {
             System.out.println("Ingrese el nuevo teléfono:");
-            setTelefono(sc.nextLine());
+            String telefonoN = sc.nextLine();
+            telefono = telefonoN;
             }
         case 3 -> {
             System.out.println("Ingrese el nuevo email:");
-            setEmail(sc.nextLine());
+            email = sc.nextLine();
             }
         case 4 -> {
             System.out.println("Ingrese la nueva dirección:");
-            setDireccion(sc.nextLine());
+            direccion = sc.nextLine();
             }
         case 5 -> {
             System.out.println("Ingrese el nuevo sitio web:");
-            setWeb(sc.nextLine());
+            web = sc.nextLine();
             }
         case 6 -> {
             System.out.println("Ingrese la nueva persona responsable:");
-            setOwner(sc.nextLine());
+            owner = sc.nextLine();
             }
         case 7 -> {
             System.out.println("Ingrese las nuevas redes sociales:");
           int valor = sc.nextInt();
-            setLstRedes(valor,sc);
+            this.setLstRedes(valor,sc);
             }       
     }
 

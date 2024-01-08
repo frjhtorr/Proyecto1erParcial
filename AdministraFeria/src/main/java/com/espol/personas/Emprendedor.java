@@ -42,17 +42,19 @@ public class Emprendedor extends Persona {
         System.out.println("Datos actuales del emprendedor: ");
         System.out.println(this.toString());
         opcionesIniciales();
+        System.out.println("¿Qué campo desea cambiar?");
         int option = sc.nextInt();
         sc.nextLine();
     
         if (option > 0 && option < 8){
-            this.editarPersona(sc);
+            this.editarPersona(sc,option);
         }
         switch (option) {
-            case 8 :
+            case 8 -> {
                 System.out.println("Ingrese los nuevos servicios:");
-                String servicios = sc.nextLine();
-                setServicios(servicios);
+                String serviciosEmp = sc.nextLine();
+                this.setServicios(serviciosEmp);
+            }
             }
     }
     

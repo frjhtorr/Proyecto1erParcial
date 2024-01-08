@@ -34,7 +34,8 @@ public class Auspiciante extends Persona{
         sc.nextLine();
     
         if (option > 0 && option < 8){
-            this.editarPersona(sc);
+            this.editarPersona(sc,option);
+            
         }
         switch (option) {
             case 8 -> {
